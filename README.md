@@ -10,7 +10,7 @@ The Infinity Engine is a game engine designed to be easy to use. You only need a
 
 This is very easy. If you're using Eclipse or IntelliJ (which you really should be!) you just need to drag the "net" folder into the source folder for your game and import whatever packages you need.
 
-Your main class should extend the `Game` class. This should also be where you put your `public static void main(String[] args)` block. Inside, you should create a new instance of your main class. Inside the main class, you should have a constructer that calls `super()` with your desired window title and size. This is where you should also put any initialization code - preloading sprites, sounds, etc. You should also have a `public void doTick()` function overriding the default - this is where your game loop should be stored. At the end of `doTick()`, you need to put `window.finishedDrawing = true;` to tell the renderer that the frame is ready. Here's an example with a main class called `MyGame`:
+Your main class should extend the `Game` class. This should also be where you put your `public static void main(String[] args)` block. Inside, you should create a new instance of your main class. Inside the main class, you should have a constructer that calls `super()` with your desired window title and size. This is where you should also put any initialization code - preloading sprites, sounds, etc. You should also have a `public void doTick()` function overriding the default - this is where your game loop should be stored. Here's an example with a main class called `MyGame`:
 
 ```java
 public class MyGame extends Game {
