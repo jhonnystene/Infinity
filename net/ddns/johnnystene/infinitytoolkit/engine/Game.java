@@ -1,22 +1,23 @@
 /*
  * Infinity Game Engine
  * Copyright (C) 2020 Johnny Stene
-
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
-
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
-
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
  * USA
-
+ *
+ * This is the "main" game class. It pretty much just handles multithreading - nothing else.
  */
  
 package net.ddns.johnnystene.infinitytoolkit.engine;
@@ -38,6 +39,8 @@ public class Game extends Thread {
         window = new Window(title, width, height);
     }
 
+	// For some reason it breaks if I don't print something. I didn't want to print "Waiting for render to finish" every frame,
+	// so we print it nowhere.
     public void doNothing() {
         PrintStream fuck = System.out;
         System.setOut(new PrintStream(new OutputStream() {public void write(int b) {}}));
@@ -47,12 +50,12 @@ public class Game extends Thread {
 
     public void run() {
         try {
-            if(window == null) {
+            if(window == null) { // Shouldn't happen anymore
                 System.out.println("ERROR! Only create Game with Game(String, int, int) constructor.");
             }
             while(true) {
                 if(!window.finishedDrawing) { // Wait for the window to release the framebuffer before ticking again
-                    doTick();
+                    doTick(); // Run the loop once
                     window.finishedDrawing = true;
                 } else {
                     doNothing();
@@ -64,6 +67,7 @@ public class Game extends Thread {
         }
     }
 
+	// This should be overrided
     public void doTick() {
         System.out.println("Please override the doTick function in your Game class.");
     }
