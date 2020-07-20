@@ -19,14 +19,14 @@
 
  */
  
-package net.ddns.johnnystene.infinitytoolkit.engine;
+package net.ddns.johnnystene.infinitytoolkit.engine.world;
+
+import net.ddns.johnnystene.infinitytoolkit.engine.graphics.Sprite;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-
-import javax.imageio.ImageIO;
 
 public class WorldItem {
 	public float x;

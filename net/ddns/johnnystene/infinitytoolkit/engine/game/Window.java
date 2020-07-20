@@ -19,10 +19,24 @@
 
  */
  
-package net.ddns.johnnystene.infinitytoolkit.engine;
+package net.ddns.johnnystene.infinitytoolkit.engine.game;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+import javax.swing.Timer;
+import net.ddns.johnnystene.infinitytoolkit.engine.graphics.ui.Button;
+import net.ddns.johnnystene.infinitytoolkit.engine.graphics.ui.style.TextStyle;
+import net.ddns.johnnystene.infinitytoolkit.engine.world.World;
+import net.ddns.johnnystene.infinitytoolkit.engine.world.WorldItem;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.Rectangle2D;
@@ -120,7 +134,70 @@ public class Window extends JFrame {
         } else return 0;
     }
 
-    // UI Framework
+    // UIToolkit 3.0
+    private void drawText(String text, Color color, Font font, boolean antiAlias, int x, int y) {
+        Graphics2D graphics = frameBuffer.createGraphics();
+        graphics.setColor(color);
+        if(antiAlias) graphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+        graphics.setFont(font);
+        graphics.drawString(text, x, y);
+        graphics.dispose();
+    }
+
+    // Todo: Java's text height getting sucks ass.
+    private void drawCenteredText(String text, Color color, Font font, boolean antiAlias, int x, int y) {
+        Graphics2D graphics = frameBuffer.createGraphics();
+        graphics.setColor(color);
+        if(antiAlias) graphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+        FontMetrics metrics = graphics.getFontMetrics(font);
+        int width = metrics.stringWidth(text);
+        int height = metrics.getHeight();
+        x = x - (width / 2);
+        y = y + (height / 4);
+        graphics.setFont(font);
+        graphics.drawString(text, x, y);
+        graphics.dispose();
+    }
+
+    public boolean UIDrawButton(Button button, int x, int y) {
+        Graphics2D graphics = frameBuffer.createGraphics();
+        int drawType = mouseStatus(x, y, button.width, button.height);
+
+        // Draw background
+        if(button.style.hasBackground) {
+            if (drawType == 0) graphics.setColor(button.style.backColorRegular);
+            else if (drawType == 1) graphics.setColor(button.style.backColorHover);
+            else if (drawType == 2) graphics.setColor(button.style.backColorPressed);
+            graphics.fillRect(x, y, button.width, button.height);
+        }
+
+        // Draw border
+        if(button.style.hasBorder) {
+            if (drawType == 0) graphics.setColor(button.style.borderColorRegular);
+            else if (drawType == 1) graphics.setColor(button.style.borderColorHover);
+            else if (drawType == 2) graphics.setColor(button.style.borderColorPressed);
+            graphics.fillRect(x, y, button.width, button.style.borderThickness);
+            graphics.fillRect(x, y + button.height - button.style.borderThickness, button.width, button.style.borderThickness);
+            graphics.fillRect(x, y, button.style.borderThickness, button.height);
+            graphics.fillRect(x + button.width - button.style.borderThickness, y, button.style.borderThickness, button.height);
+        }
+
+        // Draw text
+        if(button.style.hasText) {
+            TextStyle textStyle = null;
+            if(drawType == 0) textStyle = button.style.textStyleRegular;
+            else if(drawType == 1) textStyle = button.style.textStyleHover;
+            else if(drawType == 2) textStyle = button.style.textStylePressed;
+            if(button.style.centerText) {
+                drawCenteredText(button.text, textStyle.color, textStyle.font, textStyle.antiAlias, x + (button.width / 2), y + (button.height / 2));
+            } else {
+                drawText(button.text, textStyle.color, textStyle.font, textStyle.antiAlias, x, y);
+            }
+        }
+        return false;
+    }
+
+    // UIToolkit 2.0 (Discontinued)
     public int UIDrawRect(int x, int y, int w, int h, Color color) {
         Graphics2D graphics = frameBuffer.createGraphics();
         graphics.setColor(color);
@@ -212,15 +289,5 @@ public class Window extends JFrame {
         graphics.drawString(string, x, y);
         graphics.dispose();
         return mouseStatus(x, y, width, height);
-    }
-
-    public boolean UIDrawButton(int x, int y, int w, int h, int fontSize, Color backColor, Color hoverColor, Color textColor, String text, boolean centerText) {
-        if(UIDrawFilledRect(x, y, w, h, backColor, hoverColor) == 2) {
-            return true;
-        }
-
-        if(centerText) UIDrawCenteredString((x + (w / 2)), (y + (h / 2)), fontSize, text, textColor);
-        else UIDrawString(x, y + 15, fontSize, text, textColor);
-        return false;
     }
 }

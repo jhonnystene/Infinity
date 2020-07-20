@@ -19,7 +19,9 @@
 
  */
  
-package net.ddns.johnnystene.infinitytoolkit.engine;
+package net.ddns.johnnystene.infinitytoolkit.engine.graphics;
+
+import net.ddns.johnnystene.infinitytoolkit.engine.utilities.ImageUtils;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

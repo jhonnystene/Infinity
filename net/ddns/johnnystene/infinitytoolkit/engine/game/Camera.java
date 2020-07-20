@@ -19,16 +19,19 @@
 
  */
  
-package net.ddns.johnnystene.infinitytoolkit.engine;
+package net.ddns.johnnystene.infinitytoolkit.engine.game;
 
-public class Test {
-    public static void main(String[] args) {
-        Game game = new Game("Infinity Toolkit - Test application", 800, 600) {
-            @Override
-            public void doTick() {
-                System.out.println("Game tick!");
-            }
-        };
-        game.start();
-    }
+public class Camera {
+	public int x;
+	public int y;
+	
+	public Camera() {
+		x = 0;
+		y = 0;
+	}
+	
+	public Camera(int p0, int p1) {
+		x = p0;
+		y = p1;
+	}
 }

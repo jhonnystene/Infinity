@@ -20,7 +20,7 @@
  * This is the "main" game class. It pretty much just handles multithreading - nothing else.
  */
  
-package net.ddns.johnnystene.infinitytoolkit.engine;
+package net.ddns.johnnystene.infinitytoolkit.engine.game;
 
 import java.io.OutputStream;
 import java.io.PrintStream;

@@ -19,18 +19,16 @@
 
  */
  
-package net.ddns.johnnystene.infinitytoolkit.engine;
+package net.ddns.johnnystene.infinitytoolkit.engine.world;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.Rectangle;
+import net.ddns.johnnystene.infinitytoolkit.engine.inventory.InventoryItem;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.awt.image.Raster;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-
-import javax.imageio.ImageIO;
 
 public class World {
 	public ArrayList<WorldItem> items;

@@ -19,7 +19,7 @@
 
  */
  
-package net.ddns.johnnystene.infinitytoolkit.engine;
+package net.ddns.johnnystene.infinitytoolkit.engine.utilities;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

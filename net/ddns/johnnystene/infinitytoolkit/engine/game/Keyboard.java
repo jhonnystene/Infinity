@@ -21,7 +21,7 @@
  
 // No, I didn't write this from scratch. Wrote a python script to do it for me haha
 
-package net.ddns.johnnystene.infinitytoolkit.engine;
+package net.ddns.johnnystene.infinitytoolkit.engine.game;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;

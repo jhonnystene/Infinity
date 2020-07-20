@@ -19,9 +19,9 @@
 
  */
  
-package net.ddns.johnnystene.infinitytoolkit.engine;
+package net.ddns.johnnystene.infinitytoolkit.engine.inventory;
 
-import net.ddns.johnnystene.infinitytoolkit.engine.ImageUtils;
+import net.ddns.johnnystene.infinitytoolkit.engine.utilities.ImageUtils;
 
 import java.awt.image.BufferedImage;
 

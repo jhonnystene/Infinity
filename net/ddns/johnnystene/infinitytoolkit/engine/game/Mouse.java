@@ -19,7 +19,7 @@
 
  */
  
-package net.ddns.johnnystene.infinitytoolkit.engine;
+package net.ddns.johnnystene.infinitytoolkit.engine.game;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
