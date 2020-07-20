@@ -43,8 +43,8 @@ public class World {
 	public World() {
 		items = new ArrayList<>();
 		pickups = new ArrayList<>();
-		width = 10240;
-		height = 10240;
+		width = 4096;
+		height = 4096;
 		backdrop = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 	}
 	
@@ -158,6 +158,7 @@ public class World {
 		}
 	}
 	
+	// MapGen 2.0 (this will be replaced in a future version with a much better version)
 	public void loadMapFile(String path) {
 		try {
 			BufferedReader in = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream(path), "UTF-8"));
