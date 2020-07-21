@@ -37,6 +37,8 @@ public class World {
 	
 	public int width;
 	public int height;
+
+	public boolean hasBackdrop;
 	
 	public World() {
 		items = new ArrayList<>();
@@ -44,6 +46,7 @@ public class World {
 		width = 4096;
 		height = 4096;
 		backdrop = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+		hasBackdrop = false;
 	}
 	
 	public World(String path) {
@@ -52,6 +55,7 @@ public class World {
 		width = 4096;
 		height = 4096;
 		backdrop = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+		hasBackdrop = true;
 		try { 
 			BufferedImage temp = ImageIO.read(this.getClass().getResourceAsStream(path));
 			Graphics2D graphics = backdrop.createGraphics();
@@ -65,7 +69,7 @@ public class World {
 	public void renderTo(Graphics2D graphics, boolean debug) {
 		//Raster newFB = backdrop.getData(new Rectangle(0, 0, width, height));
 		//image.setData(newFB);
-		graphics.drawImage(backdrop, 0, 0, null);
+		if(hasBackdrop) graphics.drawImage(backdrop, 0, 0, null);
 		
 		for(WorldItem item : items) {
 			graphics.drawImage(item.sprite.image, (int) item.x, (int) item.y, null);

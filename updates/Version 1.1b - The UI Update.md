@@ -21,3 +21,5 @@ Previously, when you wanted to draw an image to the screen, you needed to grab a
 #### Mouse functions make more sense
 
 The functions for checking if the mouse was in, or clicked in, an area were not in the `Mouse` class. This makes no sense to me, so I moved it to the `Mouse` class.
+
+# 

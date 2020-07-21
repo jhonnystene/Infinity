@@ -7,6 +7,8 @@ Beta Version 1.1b Todo:
 - Finish new documentation
 	- Label
 	- Window
+	- Mouse
+	- World
 - More complete, easy to understand documentation
 - Lighting system with support for colored, moveable lights
 - Optimize rendering
