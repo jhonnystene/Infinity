@@ -18,4 +18,6 @@ One thing I found was that when I wanted to, for example, make two buttons look 
 
 Previously, when you wanted to draw an image to the screen, you needed to grab a `Graphics2D` for the framebuffer and draw it manually. That was dumb. Now, you can just pass a `Sprite` to one function. Easy!
 
+#### Mouse functions make more sense
 
+The functions for checking if the mouse was in, or clicked in, an area were not in the `Mouse` class. This makes no sense to me, so I moved it to the `Mouse` class.

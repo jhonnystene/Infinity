@@ -30,6 +30,20 @@ public class Mouse implements MouseListener, MouseMotionListener {
 	public int y = 0;
 	public boolean down = false;
 
+	public boolean inArea(int cX, int cY, int cW, int cH) {
+		if(x > cX && x < cX + cW && y > cY && y < cY + cH)
+			return true;
+
+		return false;
+	}
+
+	public int areaStatus(int x, int y, int w, int h) {
+		if(inArea(x, y, w, h)) {
+			if(down) return 2;
+			else return 1;
+		} else return 0;
+	}
+
 	// None of these should be called by the game, so they're not included in the docs.
 	@Override
 	public void mouseDragged(MouseEvent arg0) {}

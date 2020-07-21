@@ -113,20 +113,6 @@ public class Window extends JFrame {
         if(camera.y + height > 10240) camera.y = 10240 - height;
     }
 
-    public boolean mouseIn(int x, int y, int w, int h) {
-        if(mouse.x > x && mouse.x < x + w && mouse.y > y && mouse.y < y + h)
-            return true;
-
-        return false;
-    }
-
-    public int mouseStatus(int x, int y, int w, int h) {
-        if(mouseIn(x, y, w, h)) {
-            if(mouse.down) return 2;
-            else return 1;
-        } else return 0;
-    }
-
     // UIToolkit 3.0
     private void drawText(String text, Color color, Font font, boolean antiAlias, int x, int y) {
         Graphics2D graphics = frameBuffer.createGraphics();
@@ -156,7 +142,7 @@ public class Window extends JFrame {
 
     public boolean UIDrawButton(Button button, int x, int y) {
         Graphics2D graphics = frameBuffer.createGraphics();
-        int drawType = mouseStatus(x, y, button.width, button.height);
+        int drawType = mouse.areaStatus(x, y, button.width, button.height);
 
         // Draw background
         if(button.style.hasBackground) {
@@ -215,18 +201,18 @@ public class Window extends JFrame {
         graphics.setColor(color);
         graphics.drawRect(x, y, w, h);
         graphics.dispose();
-        return mouseStatus(x, y, w, h);
+        return mouse.areaStatus(x, y, w, h);
     }
 
     public int UIDrawRect(int x, int y, int w, int h, Color color, Color hoverColor) {
         Graphics2D graphics = frameBuffer.createGraphics();
-        if(mouseStatus(x, y, w, h) == 1) {
+        if(mouse.areaStatus(x, y, w, h) == 1) {
             graphics.setColor(hoverColor);
         } else graphics.setColor(color);
         graphics.drawRect(x, y, w, h);
         graphics.dispose();
 
-        return mouseStatus(x, y, w, h);
+        return mouse.areaStatus(x, y, w, h);
     }
 
     public int UIDrawFilledRect(int x, int y, int w, int h, Color color) {
@@ -234,17 +220,17 @@ public class Window extends JFrame {
         graphics.setColor(color);
         graphics.fillRect(x, y, w, h);
         graphics.dispose();
-        return mouseStatus(x, y, w, h);
+        return mouse.areaStatus(x, y, w, h);
     }
 
     public int UIDrawFilledRect(int x, int y, int w, int h, Color color, Color hoverColor) {
         Graphics2D graphics = frameBuffer.createGraphics();
-        if(mouseStatus(x, y, w, h) == 1) {
+        if(mouse.areaStatus(x, y, w, h) == 1) {
             graphics.setColor(hoverColor);
         } else graphics.setColor(color);
         graphics.fillRect(x, y, w, h);
         graphics.dispose();
 
-        return mouseStatus(x, y, w, h);
+        return mouse.areaStatus(x, y, w, h);
     }
 }
