@@ -22,29 +22,21 @@ The `Window` has a default `Keyboard` called `keybord`. It is set up to handle k
 
 The `Window` has a default `Mouse` called `mouse`. It is set up to handle mouse events for the `Window` automatically.
 
-#### Checking if the mouse is inside an area
+# 
 
-`Window` has an additional `mouseIn(int x, int y, int w, int h)` function that returns `true` if the mouse is in the given rectangle.
+## UI Function List
 
-#### Checking if the mouse is down inside an area
+For more information on creating and using the various UI elements, see their respective documentation.
 
-`Window` has an additional `mouseStatus(int x, int y, int w, int h)` function that returns `2` if the mouse is clicked in the given rectangle, `1` if the mouse is in the given rectangle (but not down), or `0` if the mouse is not inside the given rectangle.
+`drawButton(Button button, int x, int y)` - Draws a `Button` to the screen. Returns `true` if the button is pressed.
 
-## The UI toolkit
+`drawLabel(Label label, int x, int y)` - Draws a `Label` to the screen
 
-`Window` has different functions for drawing UI objects.
-
-**NOTE**: The UI toolkit will soon be replaced!
+`drawSprite(Sprite sprite, int x, int y)` - Draws a `Sprite` to the screen
 
 #### Missing features
 
 The UI toolkit is missing the following features:
-
-- Drawing images
-
-- Button borders
-
-- Global styling
 
 - Drawing circles
 
@@ -119,67 +111,3 @@ This function draws a filled-in rectangle.
 `hoverColor` is the `Color` the rectangle should be drawn in when the mouse is over it.
 
 This function returns the `mouseStatus` for the rectangle.
-
-#### Drawing Text
-
-`Window` has 4 different functions for drawing text.
-
-###### UIDrawString(int x, int y, int size, String string)
-
-This function draws text, with (X, Y) being the top-left corner.
-
-`x` is the X position.
-
-`y` is the Y position.
-
-`size` is the font size.
-
-`string` is the text to draw.
-
-###### UIDrawString(int x, int y, int size, String string, Color color)
-
-This function draws text, with (X, Y) being the top-left corner.
-
-`x` is the X position.
-
-`y` is the Y position.
-
-`size` is the font size.
-
-`string` is the text to draw.
-
-`color` is the color to draw the text as.
-
-###### UIDrawCenteredString(int x, int y, int size, String string)
-
-This function draws text, with (X, Y) being the center.
-
-`x` is the X position.
-
-`y` is the Y position.
-
-`size` is the font size.
-
-`string` is the text to draw.
-
-###### UIDrawCenteredString(int x, int y, int size, String string, Color color)
-
-This function draws text, with (X, Y) being the center.
-
-`x` is the X position.
-
-`y` is the Y position.
-
-`size` is the font size.
-
-`string` is the text to draw.
-
-`color` is the color to draw the text as.
-
-#### Buttons
-
-`Window` has 1 function to handle buttons.
-
-###### UIDrawButton(Button button, int x, int y)
-
-This function draws a `Button` at the given X and Y coordinates. It returns `true` if the button is pressed, and `false` if the button is not pressed.

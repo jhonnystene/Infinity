@@ -56,6 +56,7 @@ public class Window extends JFrame {
     public boolean finishedDrawing = false;
 
     public Window(String title, int w, int h) {
+        System.setProperty("sun.java2d.opengl", "True");
         width = w;
         height = h;
         frameBuffer = new BufferedImage(width, height, 1); // Initialize the framebuffer

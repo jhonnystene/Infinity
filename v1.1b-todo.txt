@@ -3,9 +3,9 @@ Beta Version 1.1b Todo:
 	- Progress bars?
 	- Check boxes, switches
 	- Rectangles
+	- Circles
 	- More style options
 - Finish new documentation
-	- Label
 	- Window
 	- Mouse
 	- World
