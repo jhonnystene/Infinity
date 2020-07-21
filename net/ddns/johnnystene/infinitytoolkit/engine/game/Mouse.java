@@ -29,7 +29,8 @@ public class Mouse implements MouseListener, MouseMotionListener {
 	public int x = 0;
 	public int y = 0;
 	public boolean down = false;
-	
+
+	// None of these should be called by the game, so they're not included in the docs.
 	@Override
 	public void mouseDragged(MouseEvent arg0) {}
 

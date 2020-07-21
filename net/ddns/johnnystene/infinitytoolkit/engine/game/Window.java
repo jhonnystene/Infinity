@@ -27,7 +27,6 @@ import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 import net.ddns.johnnystene.infinitytoolkit.engine.graphics.ui.Button;
 import net.ddns.johnnystene.infinitytoolkit.engine.graphics.ui.style.TextStyle;
-import net.ddns.johnnystene.infinitytoolkit.engine.world.World;
 import net.ddns.johnnystene.infinitytoolkit.engine.world.WorldItem;
 
 import java.awt.Color;
@@ -97,13 +96,6 @@ public class Window extends JFrame {
             }
         };
         new Timer(16, screenRefresher).start();
-    }
-
-    public void renderWorld(World world) {
-        Graphics2D graphics = frameBuffer.createGraphics();
-        for(WorldItem item : world.items) {
-            graphics.drawImage(item.sprite.image, (int) item.x - camera.x, (int) item.y - camera.y, this);
-        }
     }
 
     public Graphics2D createGraphics() {
@@ -197,7 +189,7 @@ public class Window extends JFrame {
         return false;
     }
 
-    // UIToolkit 2.0 (Discontinued)
+    // UIToolkit 2.0 TODO: Remove Me
     public int UIDrawRect(int x, int y, int w, int h, Color color) {
         Graphics2D graphics = frameBuffer.createGraphics();
         graphics.setColor(color);
