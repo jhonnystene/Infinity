@@ -1,6 +1,5 @@
 Beta Version 1.1b Todo:
 - Finish rewriting UI framework
-	- Sprite drawing
 	- Progress bars?
 	- Check boxes, switches
 	- Rectangles

@@ -25,7 +25,9 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
+import net.ddns.johnnystene.infinitytoolkit.engine.graphics.Sprite;
 import net.ddns.johnnystene.infinitytoolkit.engine.graphics.ui.Button;
+import net.ddns.johnnystene.infinitytoolkit.engine.graphics.ui.Label;
 import net.ddns.johnnystene.infinitytoolkit.engine.graphics.ui.style.TextStyle;
 import net.ddns.johnnystene.infinitytoolkit.engine.world.WorldItem;
 
@@ -132,7 +134,9 @@ public class Window extends JFrame {
         graphics.setColor(color);
         if(antiAlias) graphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         graphics.setFont(font);
-        graphics.drawString(text, x, y);
+        FontMetrics metrics = graphics.getFontMetrics(font);
+        int height = metrics.getHeight();
+        graphics.drawString(text, x, y + height); // Java!
         graphics.dispose();
     }
 
@@ -186,7 +190,24 @@ public class Window extends JFrame {
                 drawText(button.text, textStyle.color, textStyle.font, textStyle.antiAlias, x, y);
             }
         }
+
+        graphics.dispose();
+        if(drawType == 2) return true;
         return false;
+    }
+
+    public void UIDrawLabel(Label label, int x, int y) {
+        if(label.centered) {
+            drawCenteredText(label.text, label.style.color, label.style.font, label.style.antiAlias, x, y);
+        } else {
+            drawText(label.text, label.style.color, label.style.font, label.style.antiAlias, x, y);
+        }
+    }
+
+    public void UIDrawSprite(Sprite sprite, int x, int y) {
+        Graphics2D graphics = frameBuffer.createGraphics();
+        graphics.drawImage(sprite.image, x, y, this);
+        graphics.dispose();
     }
 
     // UIToolkit 2.0 TODO: Remove Me
