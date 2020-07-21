@@ -1,0 +1,13 @@
+Beta Version 1.1b Todo:
+- Finish rewriting UI framework
+	- Labels
+	- Sprite drawing
+	- Progress bars?
+	- Check boxes, switches
+	- Rectangles
+	- More style options
+- More complete, easy to understand documentation
+- Lighting system with support for colored, moveable lights
+- Optimize rendering
+- Post-processing?
+- Sound support
