@@ -1,0 +1,18 @@
+Window
+
+VARIABLES
+public Keyboard keyboard - Default Keyboard for the window
+public Mouse mouse - Default Mouse for the window
+public Camera camera - Default Camera for the window
+public int width = 0 - Window width. Do not change.
+public int height = 0 - Window height. Do not change.
+
+CONSTRUCTORS
+public Window(String title, int w, int h) - Create window with specified title and size
+
+FUNCTIONS
+public Graphics2D createGraphics() - Return Graphics2D for framebuffer object
+public void centerCamera(WorldItem item) - Center camera on WorldItem
+public boolean mouseIn(int x, int y, int w, int h) - Returns true if mouse is in specified area.
+public int mouseStatus(int x, int y, int w, int h) - Returns 1 if mouse is in specified area. Returns 2 if mouse is clicked in specified area.
+public boolean UIDrawButton(Button button, int x, int y) - Draw a button at desired position

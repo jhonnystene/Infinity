@@ -1,0 +1,45 @@
+Keyboard
+
+VARIABLES
+public boolean KEY_A - Whether or not the A key is pressed
+public boolean KEY_B - Whether or not the B key is pressed
+public boolean KEY_C - Whether or not the C key is pressed
+public boolean KEY_D - Whether or not the D key is pressed
+public boolean KEY_E - Whether or not the E key is pressed
+public boolean KEY_F - Whether or not the F key is pressed
+public boolean KEY_G - Whether or not the G key is pressed
+public boolean KEY_H - Whether or not the H key is pressed
+public boolean KEY_I - Whether or not the I key is pressed
+public boolean KEY_J - Whether or not the J key is pressed
+public boolean KEY_K - Whether or not the K key is pressed
+public boolean KEY_L - Whether or not the L key is pressed
+public boolean KEY_M - Whether or not the M key is pressed
+public boolean KEY_N - Whether or not the N key is pressed
+public boolean KEY_O - Whether or not the O key is pressed
+public boolean KEY_P - Whether or not the P key is pressed
+public boolean KEY_Q - Whether or not the Q key is pressed
+public boolean KEY_R - Whether or not the R key is pressed
+public boolean KEY_S - Whether or not the S key is pressed
+public boolean KEY_T - Whether or not the T key is pressed
+public boolean KEY_U - Whether or not the U key is pressed
+public boolean KEY_V - Whether or not the V key is pressed
+public boolean KEY_W - Whether or not the W key is pressed
+public boolean KEY_X - Whether or not the X key is pressed
+public boolean KEY_Y - Whether or not the Y key is pressed
+public boolean KEY_Z - Whether or not the Z key is pressed
+public boolean KEY_0 - Whether or not the 0 key is pressed
+public boolean KEY_1 - Whether or not the 1 key is pressed
+public boolean KEY_2 - Whether or not the 2 key is pressed
+public boolean KEY_3 - Whether or not the 3 key is pressed
+public boolean KEY_4 - Whether or not the 4 key is pressed
+public boolean KEY_5 - Whether or not the 5 key is pressed
+public boolean KEY_6 - Whether or not the 6 key is pressed
+public boolean KEY_7 - Whether or not the 7 key is pressed
+public boolean KEY_8 - Whether or not the 8 key is pressed
+public boolean KEY_9 - Whether or not the 9 key is pressed
+public boolean KEY_CONTROL - Whether or not a control key is pressed
+public boolean KEY_SPACE - Whether or not the spacebar is pressed
+public boolean KEY_SHIFT - Whether or not a shift key is pressed
+public boolean KEY_ESCAPE - Whether or not the escape key is pressed
+public boolean KEY_ENTER - Whether or not the enter key is pressed
+public boolean KEY_BACKSPACE - Whether or not the backspace key is pressed

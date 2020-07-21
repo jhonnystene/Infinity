@@ -1,0 +1,6 @@
+Mouse
+
+VARIABLES
+public int x - X position of the mouse cursor
+public int y - Y position of the mouse cursor
+public int down - Whether or not there is a mouse button pushed

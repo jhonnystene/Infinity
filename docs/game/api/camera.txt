@@ -1,0 +1,5 @@
+Camera
+
+VARIABLES
+public int x - X position of the camera
+public int y - Y position of the camera
