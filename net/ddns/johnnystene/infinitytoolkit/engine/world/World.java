@@ -70,7 +70,11 @@ public class World {
 		//Raster newFB = backdrop.getData(new Rectangle(0, 0, width, height));
 		//image.setData(newFB);
 		if(hasBackdrop) graphics.drawImage(backdrop, 0, 0, null);
-		
+		else {
+			graphics.setColor(Color.BLACK);
+			graphics.fillRect(0, 0, 2048, 2048);
+		}
+
 		for(WorldItem item : items) {
 			graphics.drawImage(item.sprite.image, (int) item.x, (int) item.y, null);
 			if(debug) {
@@ -94,8 +98,11 @@ public class World {
 	}
 	
 	public void renderTo(Graphics2D graphics, int viewportX, int viewportY, int viewportW, int viewportH, boolean debug) {
-		graphics.drawImage(backdrop, 0 - viewportX, 0 - viewportY, null);
-
+		if(hasBackdrop) graphics.drawImage(backdrop, 0 - viewportX, 0 - viewportY, null);
+		else {
+			graphics.setColor(Color.BLACK);
+			graphics.fillRect(0, 0, viewportW, viewportH);
+		}
 		for(WorldItem item : items) {
 			graphics.drawImage(item.sprite.image, (int) item.x - viewportX, (int) item.y - viewportY, null);
 			if(debug) {
