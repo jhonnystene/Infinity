@@ -40,7 +40,6 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 
 public class Window extends JFrame {
@@ -247,60 +246,5 @@ public class Window extends JFrame {
         graphics.dispose();
 
         return mouseStatus(x, y, w, h);
-    }
-
-    public int UIDrawString(int x, int y, int size, String string) {
-        Font font = new Font("Sans Serif", Font.PLAIN, size);
-        Graphics2D graphics = frameBuffer.createGraphics();
-        FontMetrics metrics = graphics.getFontMetrics(font);
-        graphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-        graphics.setFont(font);
-        graphics.drawString(string, x, y);
-        graphics.dispose();
-        return mouseStatus(x, y, metrics.stringWidth(string), metrics.getHeight());
-    }
-
-    public int UIDrawString(int x, int y, int size, String string, Color color) {
-        Font font = new Font("Sans Serif", Font.PLAIN, size);
-        Graphics2D graphics = frameBuffer.createGraphics();
-        FontMetrics metrics = graphics.getFontMetrics(font);
-        graphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-        graphics.setColor(color);
-        graphics.setFont(font);
-        graphics.drawString(string, x, y);
-        graphics.dispose();
-        return mouseStatus(x, y, metrics.stringWidth(string), metrics.getHeight());
-    }
-
-    public int UIDrawCenteredString(int x, int y, int size, String string) {
-        Font font = new Font("Sans Serif", Font.PLAIN, size);
-        Graphics2D graphics = frameBuffer.createGraphics();
-        graphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-        FontMetrics metrics = graphics.getFontMetrics(font);
-        int width = metrics.stringWidth(string);
-        int height = metrics.getHeight();
-        x = x - (width / 2);
-        y = y - (height / 2);
-        graphics.setFont(font);
-        graphics.drawString(string, x, y);
-        graphics.dispose();
-        return mouseStatus(x, y, width, height);
-    }
-
-    public int UIDrawCenteredString(int x, int y, int size, String string, Color color) {
-        Font font = new Font("Sans Serif", Font.PLAIN, size);
-        Graphics2D graphics = frameBuffer.createGraphics();
-        graphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-        FontMetrics metrics = graphics.getFontMetrics(font);
-        Rectangle2D dimensions = metrics.getStringBounds(string, graphics);
-        int width = (int) dimensions.getWidth();
-        int height = (int) dimensions.getHeight();
-        x = x - (width / 2);
-        y = y + metrics.getDescent();
-        graphics.setFont(font);
-        graphics.setColor(color);
-        graphics.drawString(string, x, y);
-        graphics.dispose();
-        return mouseStatus(x, y, width, height);
     }
 }
