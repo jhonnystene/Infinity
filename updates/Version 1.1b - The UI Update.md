@@ -2,6 +2,10 @@
 
 Previously, the UI framework was kind of a mess. Elements would disappear when clicked, the code you had to type to draw them was so long it went offscreen but still didn't even provide a decent amount of style options, text never rendered in the right place, the list goes on. This update changes all of that with a new and improved UI framework.
 
+#### Better code organization
+
+Previously, all of the engine's code was in one folder, which made it hard to find what you're looking for in the list of files. Now, all needed files are in seperate folders, like "graphics" and "utilities".
+
 #### Class-based, rather than function-based
 
 Before, UI elements had to be drawn by passing every bit of the style into one function. This makes the code hard to read and modify. This was fixed by introducing classes for UI objects - now you pass 3 arguments and your items get drawn how you want, every time.
